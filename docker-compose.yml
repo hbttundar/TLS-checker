@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  tlschecker:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      - TELEGRAM_TOKEN=${TELEGRAM_TOKEN}
+    volumes:
+      - ./chrome_profile:/app/chrome_profile
+      - ./data:/app/data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os,sys;import json;print('ok')"]
+      interval: 60s
+      timeout: 5s
+      retries: 3

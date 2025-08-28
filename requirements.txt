@@ -1,0 +1,5 @@
+python-telegram-bot==21.6
+selenium==4.23.1
+webdriver-manager==4.0.2
+python-dotenv==1.0.1
+prometheus-client==0.20.0  # optional metrics

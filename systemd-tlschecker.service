@@ -1,0 +1,16 @@
+[Unit]
+Description=TLSContact Appointment Monitor Bot
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/tlschecker
+EnvironmentFile=/opt/tlschecker/.env
+ExecStart=/usr/bin/python /opt/tlschecker/bot.py
+Restart=on-failure
+RestartSec=10
+User=bot
+Group=bot
+
+[Install]
+WantedBy=multi-user.target

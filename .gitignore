@@ -1,0 +1,58 @@
+# --- Python bytecode / cache ---
+__pycache__/
+*.py[cod]
+*$py.class
+
+# --- Virtual environments ---
+.venv/
+venv/
+.envrc
+.python-version
+
+# --- Build / packaging ---
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# --- Test / coverage ---
+.pytest_cache/
+.coverage*
+htmlcov/
+.tox/
+.nox/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+
+# --- Logs / runtime ---
+logs/
+*.log
+
+# --- Local environment & secrets ---
+.env
+.env.*
+bot_api_token.txt
+
+# --- Runtime generated data (persisted via Render disk, not source) ---
+subscribers.json
+chrome_profile/
+data/
+
+# --- Selenium / Browser artifacts ---
+*.png
+*.webp
+
+# --- Misc ---
+coverage.xml
+
+# Keep these (deployment) - do NOT ignore:
+# Dockerfile
+# render.yaml

@@ -1,0 +1,57 @@
+services:
+  - type: worker
+    name: tlschecker-bot
+    autoDeploy: true
+    plan: starter
+    runtime: docker
+    disk:
+      name: tlschecker-data
+      mountPath: /data
+      sizeGB: 1
+    envVars:
+      - key: TELEGRAM_TOKEN
+        sync: false
+      - key: TLS_LOGIN_URL
+        value: https://visas-de.tlscontact.com/en/ir/THR/login
+      - key: CHECK_INTERVAL
+        value: "300"
+      - key: MIN_CHECK_INTERVAL
+        value: "180"
+      - key: MAX_CHECK_INTERVAL
+        value: "420"
+      - key: JITTER_RATIO
+        value: "0.20"
+      - key: ERROR_BACKOFF_BASE
+        value: "30"
+      - key: ERROR_BACKOFF_MAX
+        value: "600"
+      - key: COOLDOWN_ON_CAPTCHA
+        value: "1800"
+      - key: FAILURE_THRESHOLD
+        value: "5"
+      - key: NEGATIVE_PATTERNS
+        value: "no appointment;not available;no slots;no appointments available"
+      - key: CAPTCHA_MARKERS
+        value: "verify;captcha;are you human;robot check"
+      - key: BLOCK_MARKERS
+        value: "too many requests;429;temporarily blocked;suspicious activity"
+      - key: HEADLESS
+        value: "true"
+      - key: LOGIN_WAIT_SECONDS
+        value: "90"
+      - key: WINDOW_SIZE
+        value: "1280,900"
+      - key: USER_DATA_DIR
+        value: "/data/chrome_profile"
+      - key: SUBSCRIBERS_FILE
+        value: "/data/subscribers.json"
+      - key: LOG_LEVEL
+        value: INFO
+      - key: LOG_FORMAT
+        value: json
+      - key: START_MONITOR_AFTER_LOGIN
+        value: "true"
+      - key: STEALTH_MODE
+        value: "true"
+      - key: ENVIRONMENT
+        value: production
